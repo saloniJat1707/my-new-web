@@ -884,31 +884,46 @@
             fadeObserver.observe(el);
         });
 
-        // Contact form handling (Simple mailto version)
+        // EmailJS initialization
+        emailjs.init('S7nuSMK_fh86INR_T'); // Replace with your EmailJS public key
+
+        // Contact form handling
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.querySelector('.form-message');
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const name = contactForm.name.value;
-            const email = contactForm.email.value;
-            const subject = contactForm.subject.value;
-            const message = contactForm.message.value;
-            
-            // Create mailto link with form data
-            const mailtoLink = `mailto:salonijat1707@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            formMessage.textContent = '✅ Email client opened! Please send the email from there.';
-            formMessage.className = 'form-message success';
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const templateParams = {
+                from_name: contactForm.name.value,
+                from_email: contactForm.email.value,
+                subject: contactForm.subject.value,
+                message: contactForm.message.value,
+                to_email: 'salonijat1707@gmail.com'
+            };
+
+            try {
+                await emailjs.send('service_suhw1cb', 'template_ypcxgpu', templateParams);
+                formMessage.textContent = '✅ Message sent successfully! I will get back to you soon.';
+                formMessage.className = 'form-message success';
+                contactForm.reset();
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                formMessage.textContent = '❌ Failed to send message. Please try again or email directly.';
+                formMessage.className = 'form-message error';
+            }
+
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
             
             setTimeout(() => {
                 formMessage.style.display = 'none';
-            }, 5000);
+            }, 8000);
         });
 
         // Typing effect for hero text
