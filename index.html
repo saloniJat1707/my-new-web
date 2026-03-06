@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saloni Jat | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #222;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #2a5298;
+        }
+
+        .skills span {
+            display: inline-block;
+            background: #2a5298;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 25px;
+            font-size: 14px;
+        }
+
+        .project-card {
+            background: white;
+            width: 70%;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 768px) {
+            .project-card {
+                width: 90%;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Saloni Jat</h1>
+    <p>BCA Student | Aspiring Cyber Security Professional</p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        I am a passionate BCA student with strong interest in Cyber Security and Java Development.
+        I enjoy building applications and continuously learning new technologies.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>Java</span>
+        <span>HTML</span>
+        <span>Basic Computer</span>
+        <span>Basic Networking</span>
+        <span>OOP Concepts</span>
+        <span>Ethical Hacking (Basics)</span>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+        <h3>Password Strength Checker (Java)</h3>
+        <p>
+            A GUI-based Java application that checks password security level
+            based on length, special characters, numbers, and uppercase/lowercase letters.
+        </p>
+    </div>
+
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: salonijat1707@gmail.com</p>
+    <p>Phone: 123-456-7890</p>
+    <p>LinkedIn: linkedin.com/in/saloni-jat</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Saloni Jat | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
