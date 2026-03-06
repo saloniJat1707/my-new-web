@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saloni Jat | Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         :root {
             --primary-color: #00d4ff;
@@ -778,6 +779,10 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                     <div class="form-message"></div>
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(0, 212, 255, 0.1); border-radius: 10px; font-size: 14px; color: #a0a0a0;">
+                        📧 <strong>Direct Email:</strong> <a href="mailto:salonijat1707@gmail.com" style="color: #00d4ff;">salonijat1707@gmail.com</a><br>
+                        💬 <strong>WhatsApp:</strong> <a href="https://wa.me/1234567890" style="color: #00d4ff;" target="_blank">+91 123-456-7890</a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -879,15 +884,28 @@
             fadeObserver.observe(el);
         });
 
-        // Contact form handling
+        // Contact form handling (Simple mailto version)
         const contactForm = document.getElementById('contactForm');
         const formMessage = document.querySelector('.form-message');
 
-        contactForm.addEventListener('submit', async (e) => {
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+            
+            const name = contactForm.name.value;
+            const email = contactForm.email.value;
+            const subject = contactForm.subject.value;
+            const message = contactForm.message.value;
+            
+            // Create mailto link with form data
+            const mailtoLink = `mailto:salonijat1707@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            formMessage.textContent = '✅ Email client opened! Please send the email from there.';
             formMessage.className = 'form-message success';
-            contactForm.reset();
+            
             setTimeout(() => {
                 formMessage.style.display = 'none';
             }, 5000);
